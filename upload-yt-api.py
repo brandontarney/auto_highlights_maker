@@ -1,6 +1,8 @@
 # TODO: Upload to youtube?
 # TODO: Seems like all videos are locked private...
     #- https://support.google.com/youtube/contact/yt_api_form
+    # - https://drjohnstechtalk.com/blog/2021/10/automated-youtube-video-uploading-from-raspberry-pi-without-using-youtube-api/
+    # Alternative via selenium? https://pypi.org/project/youtube-uploader-selenium/
 # Another option: https://github.com/tokland/youtube-upload
 # Another option: Vimeo!? https://developer.vimeo.com/api/guides/videos/upload
 
