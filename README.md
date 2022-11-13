@@ -16,6 +16,6 @@ This project seeks to automate and improve the before-mentioned process.
 3. Run `find_close_files_by_time.ipynb` to find the correct highlight videos
 4. Run `clip-cat/main.py` to concatenate the videos you want to upload into a single video without overlapping frames
 5. Run `upload.py` to upload the video to youtube
-    - Note this will require Youtube API stuff (see here: [](https://simple-youtube-api.readthedocs.io/install.html))
+    - Note this will require Youtube API stuff (see here: [](https://simple-youtube-api.readthedocs.io/install.html) and here: [](https://stackoverflow.com/questions/64079139/using-youtube-data-api-makes-my-videos-private-on-upload/64080239#64080239))
 
 
