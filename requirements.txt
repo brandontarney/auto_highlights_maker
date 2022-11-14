@@ -2,4 +2,9 @@ fire
 moviepy==2.0.0.dev2
 numpy
 notebook
+PyVimeo
 simple-youtube-api
+selenium
+selenium_firefox
+geckodriver-autoinstaller
+youtube-uploader-selenium
