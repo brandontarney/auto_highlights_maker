@@ -71,6 +71,7 @@ class ClipConcatter:
             f"{time.ctime(latter_end)}"
         )
 
+        #TODO: Something not working here - finds overlap when there should be NONE for test videos!
         if latter_start >= (former_end + SLOP_TIME):
             return None
 
