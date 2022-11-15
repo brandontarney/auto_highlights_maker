@@ -4,4 +4,5 @@ env/
 credentials*
 *swp*
 *mp3
+*concatenation*
 test_videos/uploads/
