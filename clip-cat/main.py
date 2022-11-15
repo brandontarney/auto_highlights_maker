@@ -1,6 +1,7 @@
 import os
 import time
 from typing import Dict
+from datetime import datetime
 
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 import numpy as np
@@ -29,10 +30,20 @@ class ClipConcatter:
         return os.path.join(self.clip_dir, clip.filename)
 
     def timestamp_endpoints_of_clip(self, clip: VideoFileClip):
-        end = os.path.getmtime(self.clip_abspath(clip))
-        start = end - clip.duration
+        if "Fortnite" in clip.filename:
+            fortnite_highlight_date_time_format = "%Y.%m.%d - %H.%M.%S"
+            clip_file_name = os.path.basename(clip.filename)
+            #Strip out txt & remove last 3 digits which are miliseconds
+            date_time_string_from_clip = clip_file_name.replace(".DVR", "") \
+                        .replace("Fortnite ", "").replace(".mp4", "")[:-3]
+            file_end_time = datetime.strptime( date_time_string_from_clip, fortnite_highlight_date_time_format)
+            file_end_time_in_seconds = file_end_time.timestamp()
+        else:
+            file_end_time_in_seconds = os.path.getmtime(self.clip_abspath(clip))
 
-        return start, end
+        file_start_time_in_seconds = file_end_time_in_seconds - clip.duration
+
+        return file_start_time_in_seconds, file_end_time_in_seconds
 
     def clip_is_complete_subset(
         self, former_clip: VideoFileClip, latter_clip: VideoFileClip
