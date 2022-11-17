@@ -4,7 +4,8 @@ import shutil
 import fire
 
 
-# TODO: Default paths here are easy to break if you don't run this script from within the base directory
+#TODO: Default paths here are easy to break if you don't run this script from within the base directory
+#TODO - need to ensure all directories provided end with '/'
 def find_close_files_by_time( fortnite_clip_search_limit_in_seconds,
                              fortnite_video_directory_path="test_videos/",
                              manual_date_time_file_path="test_videos/date_list.txt",
@@ -19,14 +20,14 @@ def find_close_files_by_time( fortnite_clip_search_limit_in_seconds,
     fortnite_highlight_date_time_format = "%Y.%m.%d - %H.%M.%S"
 
     # List the directories in the Fortnite folder && date_list file
-    all_files = os.listdir(fortnite_video_directory_path)
-    fortnite_highlight_files = [files.strip() for files in all_files if files.rfind("DVR") >= 0]
-    print(f"- PROCESSING: fortnite_highlight_files: {fortnite_highlight_files}")
     with open(manual_date_time_file_path) as file:
-        manual_date_times = [datetime.strptime(line.strip(), manual_date_time_format) for line in file if line]
+        manual_date_times = [datetime.strptime(line.strip(), manual_date_time_format) for line in file if line.strip()]
         print(f"- PROCESSING: manual_date_times: {manual_date_times}")
 
     # Convert to date/time && map times to filenames
+    all_files = os.listdir(fortnite_video_directory_path)
+    fortnite_highlight_files = [files.strip() for files in all_files if files.rfind("DVR") >= 0]
+    print(f"- PROCESSING: fortnite_highlight_files: {fortnite_highlight_files}")
     fortnite_highlight_date_to_file_map = \
         dict([ (datetime.strptime( \
             fortnite_file.replace(".DVR", "").replace("Fortnite ", "").replace(".mp4","")[:-3], \
@@ -55,8 +56,10 @@ def find_close_files_by_time( fortnite_clip_search_limit_in_seconds,
         for (date, files) in fortnite_highlights_chosen_for_manual_date_times.items():
             #selected_files_file.write('\n'.join(files))
             selected_files_file.write(str(date) + '\n')
+            print(f"{date}")
             for file in files:
-                selected_files_file.write('\t' + file)
+                selected_files_file.write('\t' + file + '\n')
+                print(f"\t{file}")
                 shutil.copyfile(fortnite_video_directory_path + file, upload_directory_path + file)
 
 
