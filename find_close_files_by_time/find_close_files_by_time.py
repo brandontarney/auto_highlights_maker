@@ -8,7 +8,7 @@ import fire
 def find_close_files_by_time( fortnite_clip_search_limit_in_seconds,
                              fortnite_video_directory_path="test_videos/",
                              manual_date_time_file_path="test_videos/date_list.txt",
-                             selected_files_file_path="test_videos/selected_files_list.txt",
+                             videos_selected_for_upload_path="test_videos/selected_files_list.txt",
                              upload_directory_path="test_videos/uploads/" ):
 
     print(f"- INPUT: fortnite_clip_search_limit(s): {fortnite_clip_search_limit_in_seconds}")
@@ -48,10 +48,10 @@ def find_close_files_by_time( fortnite_clip_search_limit_in_seconds,
 
     print(f"- PROCESSING: fortnite_highlights_chosen_for_manual_date_times: {fortnite_highlights_chosen_for_manual_date_times}")
 
-    print(f"- FINISHING: writing chosen fortnite highlights here: {selected_files_file_path}")
+    print(f"- FINISHING: writing chosen fortnite highlights here: {videos_selected_for_upload_path}")
     print(f"- FINISHING: copying chosen fortnite highlights here: {upload_directory_path}")
     # write all clips found to file
-    with open(selected_files_file_path, 'w') as selected_files_file:
+    with open(videos_selected_for_upload_path, 'w') as selected_files_file:
         for (date, files) in fortnite_highlights_chosen_for_manual_date_times.items():
             #selected_files_file.write('\n'.join(files))
             selected_files_file.write(str(date) + '\n')
