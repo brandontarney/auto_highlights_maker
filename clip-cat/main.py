@@ -1,6 +1,6 @@
 import os
 import time
-from typing import Dict
+from collections import OrderedDict
 from datetime import datetime
 
 from moviepy.editor import VideoFileClip, concatenate_videoclips
@@ -15,10 +15,11 @@ class ClipConcatter:
     def __init__(self, clip_dir: str):
         print(f"Initialize ClipConcatter with dir {clip_dir}")
         self.clip_dir = clip_dir
-        self.clips: Dict[str, VideoFileClip] = {}
+        self.clips: OrderedDict[str, VideoFileClip] = {}
 
         # Create moviepy clips of all mp4 files in directory
-        for filename in os.listdir(clip_dir):
+        sorted_file_names = sorted(os.listdir(clip_dir))
+        for filename in sorted_file_names:
             if filename.startswith("Fortnite") and filename.endswith("mp4"):
                 self.clips[filename] = VideoFileClip(
                     os.path.join(self.clip_dir, filename)
@@ -71,7 +72,6 @@ class ClipConcatter:
             f"{time.ctime(latter_end)}"
         )
 
-        #TODO: Something not working here - finds overlap when there should be NONE for test videos!
         if latter_start >= (former_end + SLOP_TIME):
             return None
 
@@ -194,7 +194,9 @@ def list_clips(dir: str):
 
 
 if __name__ == "__main__":
+    print("\n- START: CLIP-CAT")
     print("You can ignore the 'File Not Found' message")
     from fire import Fire
 
     Fire({"create": create, "list": list_clips})
+    print("- END: CLIP-CAT\n")
