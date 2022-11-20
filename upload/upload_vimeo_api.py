@@ -7,14 +7,15 @@ import fire
 def upload_video(token_file_path, client_id_file_path, client_secret_file_path, video_file_path, video_name='upload', video_description='video uplaoded from auto_movie_maker'):
     with open(token_file_path, 'r') as token_file:
         token = token_file.read().replace('\n','')
-        print("- INPUT: Token: " + token)
+        #print("- INPUT: Token: " + token)
     with open(client_id_file_path, 'r') as client_id_file:
         client_id = client_id_file.read().replace('\n','')
-        print("- INPUT: Client_ID: " + client_id)
+        #print("- INPUT: Client_ID: " + client_id)
     with open(client_secret_file_path, 'r') as client_seecret_file:
         client_secret = client_seecret_file.read().replace('\n','')
-        print("- INPUT: Client_server: " + client_secret)
+        #print("- INPUT: Client_server: " + client_secret)
 
+    print('- PROCESSING: Uploading your video')
     client = vimeo.VimeoClient( token=token, key=client_id, secret=client_secret)
     uri = client.upload(video_file_path, data={ 'name':video_name, 'description':video_description})
 
