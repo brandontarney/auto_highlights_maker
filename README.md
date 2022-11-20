@@ -1,5 +1,5 @@
 # auto_highlights_maker
-Automatically create a movie (and upload it)
+Automatically create a highlight movie (and upload it)
 
 ## Background:
 When playing modern PC video games highlight videos are captured for certain in-game events automatically. This leaves the user with the **problem** of deciphering which videos are worth sharing and *actually sharing* the videos in a concise manor. In the past this meant the user would review all videos, select the best videos, combine the videos into one video manually with a video editor, and upload the video manually to youtube or a similar website. Not only is this a manually intensive task, but the output product is less than ideal since overlapping highlight videos require manual trimming or otherwise have duplicate frames in the final single video (the video has overlapping/repeated sections). 
