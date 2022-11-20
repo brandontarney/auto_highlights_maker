@@ -11,11 +11,19 @@ This project seeks to automate and improve the before-mentioned process.
 
 ## How-To Run:
 1. Setup python environment via requirements.txt
-2. Run `record_date_time*` script after every memory highlight 
-    - Note run whichever program is applicable to your OS
-3. Run `find_close_files_by_time.ipynb` to find the correct highlight videos
-4. Run `clip-cat/main.py` to concatenate the videos you want to upload into a single video without overlapping frames
-5. Run `upload.py` to upload the video to youtube
-    - Note this will require Youtube API stuff (see here: [](https://simple-youtube-api.readthedocs.io/install.html) and here: [](https://stackoverflow.com/questions/64079139/using-youtube-data-api-makes-my-videos-private-on-upload/64080239#64080239))
+  - recommendation: 
+    - `python -m venv venv`
+    - `source venv/Scripts/activate`
+    - `pip install -r requirements.txt`
+1. Collect relevant times of highlight videos captured via `record_date_time*` script after every in-game highlight
+  - I recommend using the `*.exe` program in your Windows taskbar so you can quickly run the script while playing a game
+1. Run `auto_movie_maker_PLATFORM.sh` to:
+  1. Find matching highlight files for previously manually recorded times (see previous step)
+    - `find_close_files_by_time.py` to find the correct highlight videos
+  2. Concatenate all relevant clips (and remove duplicate frames) into a single movie
+    - `clip-cat/main.py` to concatenate the videos you want to upload into a single video without overlapping frames
+  3. Upload the movie (scripts exist for Youtube and Vimeo, but Vimeo is the currently chosen upload)
+    - `upload.py` to upload the video to youtube
+    	- Note this will require Youtube API or Vimeo API stuff (see here: [youtube-api](https://simple-youtube-api.readthedocs.io/install.html) and here: [how-to-make-yt-uploads-public](https://stackoverflow.com/questions/64079139/using-youtube-data-api-makes-my-videos-private-on-upload/64080239#64080239) or here: [vimeo API help](https://developer.vimeo.com/api/guides/start))
 
 
