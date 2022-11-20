@@ -6,5 +6,6 @@ credentials*
 *mp3
 *concatenation*
 test_videos/uploads/
-**/*pyc
+**/.pyc
+*.pyc
 *log*
