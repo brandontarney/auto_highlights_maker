@@ -1,4 +1,4 @@
-# auto_movie_maker
+# auto_highlights_maker
 Automatically create a movie (and upload it)
 
 ## Background:
@@ -17,7 +17,7 @@ This project seeks to automate and improve the before-mentioned process.
         - `pip install -r requirements.txt`
 2. Collect relevant times of highlight videos captured via `record_date_time*` script after every in-game highlight
     - I recommend using the `*.exe` program in your Windows taskbar so you can quickly run the script while playing a game
-3. Run `auto_movie_maker_PLATFORM.sh` to:
+3. Run `auto_highlights_maker_PLATFORM.sh` to:
     1. Find matching highlight files for previously manually recorded times (see previous step)
         - `find_close_files_by_time.py` to find the correct highlight videos
     2. Concatenate all relevant clips (and remove duplicate frames) into a single movie

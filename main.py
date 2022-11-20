@@ -16,7 +16,7 @@ def make_movie(fortnite_clip_search_limit_in_seconds,
                videos_selected_for_upload_path="test_videos/selected_files_list.txt",
                upload_directory_path="test_videos/uploads/",
                upload_video_name="upload",
-               upload_video_description="video uploaded from auto_movie_maker"):
+               upload_video_description="video uploaded from auto_highlights_maker"):
 
     print("\n- START: Finding video files to concatenate via find_close_files_by_time.py")
     find_close_files_by_time.find_close_files_by_time( fortnite_clip_search_limit_in_seconds,

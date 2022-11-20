@@ -4,7 +4,7 @@ import vimeo
 import fire
 
 # UPLOAD_VIDEO: method to upload video to vimeo
-def upload_video(token_file_path, client_id_file_path, client_secret_file_path, video_file_path, video_name='upload', video_description='video uplaoded from auto_movie_maker'):
+def upload_video(token_file_path, client_id_file_path, client_secret_file_path, video_file_path, video_name='upload', video_description='video uplaoded from auto_highlights_maker'):
     with open(token_file_path, 'r') as token_file:
         token = token_file.read().replace('\n','')
         #print("- INPUT: Token: " + token)
